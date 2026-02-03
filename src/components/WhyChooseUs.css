@@ -1,0 +1,249 @@
+/* Why Choose Us Section - Flow Revamp */
+.why-choose-us {
+    position: relative;
+    padding: var(--spacing-2xl) 0;
+    min-height: 100vh;
+    background: var(--darker-bg);
+    color: var(--white);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Background */
+.why-choose-us__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.grid-bg {
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* Header */
+.why-choose-us__header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.why-choose-us__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.why-choose-us__intro {
+    font-size: 1.25rem;
+    color: var(--gray-200);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 3D Timeline Container */
+.timeline-container {
+    position: relative;
+    z-index: 2;
+    padding: 60px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Connectors */
+.timeline-line-bg,
+.timeline-line-fill {
+    position: absolute;
+    top: 50px;
+    /* Aligns with marker center */
+    left: 0;
+    height: 4px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.timeline-line-bg {
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.timeline-line-fill {
+    width: 0%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 20px var(--accent-cyan);
+    z-index: 1;
+}
+
+/* Track Items */
+.timeline-track {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 15px;
+    perspective: 1000px;
+    /* Enable 3D rotation */
+}
+
+/* Markers */
+.timeline-marker {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.timeline-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--dark-bg);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    transition: all 0.3s ease;
+    z-index: 5;
+    position: relative;
+}
+
+/* Glass Card Content */
+.timeline-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    text-align: center;
+    width: 100%;
+    min-height: 200px;
+    transition: transform 0.3s;
+
+    /* 3D Initial State (Controlled by GSAP) */
+    transform-style: preserve-3d;
+}
+
+.timeline-content h3 {
+    color: var(--accent-cyan);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-content p {
+    color: var(--gray-300);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Hover Effect */
+.timeline-item:hover .timeline-content {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-cyan);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -5px rgba(6, 182, 212, 0.2);
+}
+
+/* Footer Conclusion */
+.why-choose-us__footer {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.footer-glow-text {
+    font-size: 1.2rem;
+    color: var(--white);
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+    border-top: 1px solid rgba(6, 182, 212, 0.3);
+    border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Responsive: Vertical Flow on Mobile */
+@media (max-width: 992px) {
+    .timeline-container {
+        padding: 0;
+        margin: 0 20px;
+    }
+
+    .timeline-track {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Vertical Line */
+    .timeline-line-bg,
+    .timeline-line-fill {
+        display: block;
+        /* Show them! */
+        top: 0;
+        left: 28px;
+        /* Center of marker (60px) is 30px, line width is 4px. Left = 30 - 2 = 28px */
+        width: 4px;
+        height: 100%;
+    }
+
+    .timeline-line-bg {
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-line-fill {
+        width: 4px;
+        height: 0%;
+        /* Start at 0 height */
+        transition: height 0.1s;
+    }
+
+    .timeline-item {
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: var(--spacing-xl);
+        /* More space for vertical flow */
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .timeline-marker {
+        width: 60px;
+        height: auto;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .timeline-content {
+        min-height: auto;
+        text-align: left;
+    }
+}
