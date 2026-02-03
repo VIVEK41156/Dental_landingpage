@@ -1,6 +1,6 @@
 {
   "name": "dental-landing-page",
-  "homepage": "https://vivek-123456.github.io/Dental_landingpage",
+  "homepage": "https://github.com/VIVEK41156/Dental-landing.git",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,6 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
